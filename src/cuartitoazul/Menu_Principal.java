@@ -17,6 +17,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         this.setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null); //centra frame en mi pantalla
+        JPanelPersonal.setVisible(false);
         setIconImage(new ImageIcon(getClass().getResource("/cuartitoazul/imagenes/logochico.png")).getImage());
     }
 
@@ -28,8 +29,15 @@ public class Menu_Principal extends javax.swing.JFrame {
         panel1 = new org.edisoncor.gui.panel.Panel();
         JBCerrar = new javax.swing.JButton();
         JBMin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        JLTitulo = new javax.swing.JLabel();
         JLLogo = new javax.swing.JLabel();
+        JBUsuarios = new javax.swing.JButton();
+        JBPersonal = new javax.swing.JButton();
+        JLVilox = new javax.swing.JLabel();
+        JPanelPersonal = new org.edisoncor.gui.panel.Panel();
+        JBCrearP = new javax.swing.JButton();
+        JBEditarP = new javax.swing.JButton();
+        JLPersonal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,15 +79,51 @@ public class Menu_Principal extends javax.swing.JFrame {
         });
         panel1.add(JBMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 30, -1));
 
-        jLabel1.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Menú Principal");
-        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 210, 30));
+        JLTitulo.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
+        JLTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        JLTitulo.setText("Menú Principal");
+        panel1.add(JLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 210, 30));
 
         panelImage1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 70));
 
         JLLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/logochico.png"))); // NOI18N
         panelImage1.add(JLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 60, 60));
+
+        JBUsuarios.setText("Usuarios");
+        JBUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBUsuariosActionPerformed(evt);
+            }
+        });
+        panelImage1.add(JBUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 80, 70));
+
+        JBPersonal.setText("Personal");
+        JBPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBPersonalActionPerformed(evt);
+            }
+        });
+        panelImage1.add(JBPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 80, 70));
+
+        JLVilox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/vilox.png"))); // NOI18N
+        panelImage1.add(JLVilox, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, 50, 70));
+
+        JPanelPersonal.setColorPrimario(new java.awt.Color(153, 153, 153));
+        JPanelPersonal.setColorSecundario(new java.awt.Color(102, 102, 102));
+        JPanelPersonal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JBCrearP.setText("Crear");
+        JPanelPersonal.add(JBCrearP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 80, 80));
+
+        JBEditarP.setText("Editar");
+        JPanelPersonal.add(JBEditarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, 80));
+
+        JLPersonal.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
+        JLPersonal.setForeground(new java.awt.Color(255, 255, 255));
+        JLPersonal.setText("Personal");
+        JPanelPersonal.add(JLPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 30));
+
+        panelImage1.add(JPanelPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 230, 150));
 
         getContentPane().add(panelImage1, java.awt.BorderLayout.CENTER);
 
@@ -105,6 +149,16 @@ public class Menu_Principal extends javax.swing.JFrame {
         x = evt.getX(); // este evento agarra las cordenadas de x y en las que estoy posicionado
         y = evt.getY();
     }//GEN-LAST:event_panel1MousePressed
+
+    private void JBUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUsuariosActionPerformed
+       Crear_Usuario a=new Crear_Usuario();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_JBUsuariosActionPerformed
+
+    private void JBPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPersonalActionPerformed
+        JPanelPersonal.setVisible(true);
+    }//GEN-LAST:event_JBPersonalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,9 +194,18 @@ public class Menu_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCerrar;
+    private javax.swing.JButton JBCrearP;
+    private javax.swing.JButton JBEditarP;
     private javax.swing.JButton JBMin;
+    private javax.swing.JButton JBOficio;
+    private javax.swing.JButton JBPersonal;
+    private javax.swing.JButton JBUsuarios;
     private javax.swing.JLabel JLLogo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel JLPersonal;
+    private javax.swing.JLabel JLTitulo;
+    private javax.swing.JLabel JLVilox;
+    private org.edisoncor.gui.panel.Panel JPanel2;
+    private org.edisoncor.gui.panel.Panel JPanelPersonal;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     // End of variables declaration//GEN-END:variables
