@@ -16,7 +16,7 @@ public class CuartitoAzul {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Hola mi gerry!");
+        System.out.println("Hola mi richitooooo puto xd!");
     }
     
 }
