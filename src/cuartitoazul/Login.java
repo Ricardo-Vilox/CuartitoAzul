@@ -2,7 +2,16 @@ package cuartitoazul;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -10,6 +19,8 @@ import javax.swing.ImageIcon;
  */
 public class Login extends javax.swing.JFrame {
 
+    private java.sql.Connection con;
+    private java.sql.Statement stmt;
     private int x, y;
 
     /**
@@ -20,6 +31,41 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //centra frame en mi pantalla
         setIconImage(new ImageIcon(getClass().getResource("/cuartitoazul/imagenes/logochico.png")).getImage());
+    }
+
+    private void DBconnect() {
+        String url = "jdbc:mysql://localhost/cuartito_azul";
+        String user = "root";
+        String pass = "";
+        try {
+            con = DriverManager.getConnection(url, user, pass);
+        } catch (SQLException ex) {
+            System.err.println("Ocurrio Excepcion" + ex);
+        }
+    }
+
+    public void acceder(String usuario, String pass) throws UnsupportedLookAndFeelException, SQLException {
+        DBconnect();
+        String cap = "";
+        String sql = "SELECT * FROM usuarios WHERE usuario='" + usuario + "' && contra='" + pass + "'";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                cap = rs.getString("usuario");
+            }
+            if (cap.equals("")) {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña invalidos.", "Error de inicio de sesion", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Menu_Principal a = new Menu_Principal();
+                a.setVisible(true);
+                a.JLBienvenidoEdit.setText(TXTUsuario.getText());
+                this.setVisible(false);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        con.close();
     }
 
     @SuppressWarnings("unchecked")
@@ -35,8 +81,8 @@ public class Login extends javax.swing.JFrame {
         JLLogo = new javax.swing.JLabel();
         JLUsuario = new javax.swing.JLabel();
         JLContra = new javax.swing.JLabel();
-        JBMin = new javax.swing.JButton();
-        JBCerrar = new javax.swing.JButton();
+        JBMin = new javax.swing.JLabel();
+        JBCerrar = new javax.swing.JLabel();
         lbl_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,6 +93,12 @@ public class Login extends javax.swing.JFrame {
 
         TXTUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         PanelContenedor.add(TXTUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 200, 30));
+
+        TXTContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TXTContraKeyPressed(evt);
+            }
+        });
         PanelContenedor.add(TXTContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 200, 30));
 
         btn_Cancelar.setBackground(new java.awt.Color(122, 34, 34));
@@ -85,25 +137,21 @@ public class Login extends javax.swing.JFrame {
         JLContra.setText("Contraseña");
         PanelContenedor.add(JLContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, 20));
 
-        JBMin.setBackground(new java.awt.Color(153, 153, 153));
-        JBMin.setForeground(new java.awt.Color(153, 153, 153));
-        JBMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/minimizar.png"))); // NOI18N
-        JBMin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBMinActionPerformed(evt);
+        JBMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Minimizar.png"))); // NOI18N
+        JBMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBMinMouseClicked(evt);
             }
         });
-        PanelContenedor.add(JBMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 30, -1));
+        PanelContenedor.add(JBMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 20, 20));
 
-        JBCerrar.setBackground(new java.awt.Color(153, 153, 153));
-        JBCerrar.setForeground(new java.awt.Color(153, 153, 153));
-        JBCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/cerrar.png"))); // NOI18N
-        JBCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCerrarActionPerformed(evt);
+        JBCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Cerrar.png"))); // NOI18N
+        JBCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBCerrarMouseClicked(evt);
             }
         });
-        PanelContenedor.add(JBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 30, -1));
+        PanelContenedor.add(JBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 20, 20));
 
         lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Login/Fondo.jpg"))); // NOI18N
         lbl_Fondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -133,9 +181,15 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
-        this.dispose();
-        Menu_Principal menu = new Menu_Principal();
-        menu.setVisible(true);
+        String usu = TXTUsuario.getText();
+        String pass = new String(TXTContra.getPassword());
+        try {
+            acceder(usu, pass);
+        } catch (UnsupportedLookAndFeelException ex) {
+            System.out.println(ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
@@ -152,15 +206,30 @@ public class Login extends javax.swing.JFrame {
         this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
     }//GEN-LAST:event_lbl_FondoMouseDragged
 
-    private void JBMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMinActionPerformed
-        // evento minimizar
+    private void JBMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBMinMouseClicked
+        // TODO add your handling code here:
         this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_JBMinActionPerformed
+    }//GEN-LAST:event_JBMinMouseClicked
 
-    private void JBCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCerrarActionPerformed
-        // evento cerrar
+    private void JBCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBCerrarMouseClicked
+        // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_JBCerrarActionPerformed
+    }//GEN-LAST:event_JBCerrarMouseClicked
+
+    private void TXTContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXTContraKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String usu = TXTUsuario.getText();
+            String pass = new String(TXTContra.getPassword());
+            try {
+                acceder(usu, pass);
+            } catch (UnsupportedLookAndFeelException ex) {
+                System.out.println(ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_TXTContraKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -188,8 +257,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCerrar;
-    private javax.swing.JButton JBMin;
+    private javax.swing.JLabel JBCerrar;
+    private javax.swing.JLabel JBMin;
     private javax.swing.JLabel JLContra;
     private javax.swing.JLabel JLLogo;
     private javax.swing.JLabel JLUsuario;
