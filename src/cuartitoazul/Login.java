@@ -15,7 +15,9 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null); //centra frame en mi pantalla
     }
 
     /**
@@ -27,21 +29,74 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelContenedor = new javax.swing.JPanel();
+        txt_Usuario = new javax.swing.JTextField();
+        txt_Contraseña = new javax.swing.JPasswordField();
+        btn_Cancelar = new javax.swing.JButton();
+        btn_Ingresar = new javax.swing.JButton();
+        lbl_IniciarSesion = new javax.swing.JLabel();
+        lbl_Fondo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(340, 465));
+
+        PanelContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelContenedor.add(txt_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 200, 30));
+        PanelContenedor.add(txt_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 200, 30));
+
+        btn_Cancelar.setBackground(new java.awt.Color(122, 34, 34));
+        btn_Cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Cancelar.setText("Cancelar");
+        btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelarActionPerformed(evt);
+            }
+        });
+        PanelContenedor.add(btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 150, 40));
+
+        btn_Ingresar.setBackground(new java.awt.Color(60, 34, 6));
+        btn_Ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Ingresar.setText("Ingresar");
+        btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_IngresarActionPerformed(evt);
+            }
+        });
+        PanelContenedor.add(btn_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 320, 150, 40));
+
+        lbl_IniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Login/iniciar_sesion.png"))); // NOI18N
+        PanelContenedor.add(lbl_IniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 310, 100));
+
+        lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Login/Fondo.jpg"))); // NOI18N
+        PanelContenedor.add(lbl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 341, 465));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(PanelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PanelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Menu_Principal menu = new Menu_Principal();
+        menu.setVisible(true);
+    }//GEN-LAST:event_btn_IngresarActionPerformed
+
+    private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btn_CancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +134,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelContenedor;
+    private javax.swing.JButton btn_Cancelar;
+    private javax.swing.JButton btn_Ingresar;
+    private javax.swing.JLabel lbl_Fondo;
+    private javax.swing.JLabel lbl_IniciarSesion;
+    private javax.swing.JPasswordField txt_Contraseña;
+    private javax.swing.JTextField txt_Usuario;
     // End of variables declaration//GEN-END:variables
 }
