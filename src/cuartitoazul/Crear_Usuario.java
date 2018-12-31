@@ -123,8 +123,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
 
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         panel1 = new org.edisoncor.gui.panel.Panel();
-        JBCerrar = new javax.swing.JButton();
-        JBMin = new javax.swing.JButton();
         JLTitulo = new javax.swing.JLabel();
         JBAtras = new javax.swing.JButton();
         JCContra = new javax.swing.JComboBox<>();
@@ -178,26 +176,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
             }
         });
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        JBCerrar.setBackground(new java.awt.Color(153, 153, 153));
-        JBCerrar.setForeground(new java.awt.Color(153, 153, 153));
-        JBCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/cerrar.png"))); // NOI18N
-        JBCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCerrarActionPerformed(evt);
-            }
-        });
-        panel1.add(JBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 30, -1));
-
-        JBMin.setBackground(new java.awt.Color(153, 153, 153));
-        JBMin.setForeground(new java.awt.Color(153, 153, 153));
-        JBMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/minimizar.png"))); // NOI18N
-        JBMin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBMinActionPerformed(evt);
-            }
-        });
-        panel1.add(JBMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 30, -1));
 
         JLTitulo.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
         JLTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -369,16 +347,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JBCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCerrarActionPerformed
-        // evento cerrar
-        System.exit(0);
-    }//GEN-LAST:event_JBCerrarActionPerformed
-
-    private void JBMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMinActionPerformed
-        // evento minimizar
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_JBMinActionPerformed
 
     private void panel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseDragged
         Point p = MouseInfo.getPointerInfo().getLocation();
@@ -574,12 +542,10 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
     private javax.swing.JButton JBAtras;
     private javax.swing.JButton JBBorrarUs;
     private javax.swing.JButton JBCambiarContra;
-    private javax.swing.JButton JBCerrar;
     private javax.swing.JButton JBConfirmar;
     private javax.swing.JButton JBConfirmar1;
     private javax.swing.JButton JBConfirmar2;
     private javax.swing.JButton JBCrearUs;
-    private javax.swing.JButton JBMin;
     private javax.swing.JComboBox<String> JCContra;
     private javax.swing.JComboBox<String> JCTipoU;
     private javax.swing.JComboBox<String> JCUsuario;
