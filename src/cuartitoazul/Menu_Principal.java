@@ -37,11 +37,13 @@ public class Menu_Principal extends javax.swing.JFrame {
         JBCerrar = new javax.swing.JLabel();
         JBMin = new javax.swing.JLabel();
         JLVilox = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        JLTitulo = new javax.swing.JLabel();
+        JLBievenido = new javax.swing.JLabel();
+        JLBienvenidoEdit = new javax.swing.JLabel();
         lbl_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 440));
+        setPreferredSize(new java.awt.Dimension(800, 438));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,10 +150,27 @@ public class Menu_Principal extends javax.swing.JFrame {
         JLVilox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/vilox.png"))); // NOI18N
         jPanel1.add(JLVilox, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 360, 50, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/MenuPrincipal.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 370, 100));
+        JLTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/MenuPrincipal.png"))); // NOI18N
+        jPanel1.add(JLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 370, 100));
+
+        JLBievenido.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        JLBievenido.setText("Bienvenido(a):");
+        jPanel1.add(JLBievenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 406, -1, 30));
+
+        JLBienvenidoEdit.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(JLBienvenidoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 160, 20));
 
         lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/fondo.jpg"))); // NOI18N
+        lbl_Fondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lbl_FondoMouseDragged(evt);
+            }
+        });
+        lbl_Fondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_FondoMousePressed(evt);
+            }
+        });
         jPanel1.add(lbl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 440));
@@ -160,13 +179,13 @@ public class Menu_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UsuariosActionPerformed
-       Crear_Usuario a=new Crear_Usuario();
+        Crear_Usuario a = new Crear_Usuario();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_UsuariosActionPerformed
 
     private void btn_PersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PersonalActionPerformed
-        
+
     }//GEN-LAST:event_btn_PersonalActionPerformed
 
     private void JBMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBMinMouseClicked
@@ -222,6 +241,16 @@ public class Menu_Principal extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_lbl_CerrarSesionMouseClicked
 
+    private void lbl_FondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_FondoMousePressed
+        x = evt.getX(); // este evento agarra las cordenadas de x y en las que estoy posicionado
+        y = evt.getY();
+    }//GEN-LAST:event_lbl_FondoMousePressed
+
+    private void lbl_FondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_FondoMouseDragged
+        Point p = MouseInfo.getPointerInfo().getLocation();
+        this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
+    }//GEN-LAST:event_lbl_FondoMouseDragged
+
     /**
      * @param args the command line arguments
      */
@@ -257,6 +286,9 @@ public class Menu_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JBCerrar;
     private javax.swing.JLabel JBMin;
+    public javax.swing.JLabel JLBienvenidoEdit;
+    private javax.swing.JLabel JLBievenido;
+    private javax.swing.JLabel JLTitulo;
     private javax.swing.JLabel JLVilox;
     private javax.swing.JButton btn_Caja;
     private javax.swing.JButton btn_Menu;
@@ -264,7 +296,6 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_Reportes;
     private javax.swing.JButton btn_Reportes1;
     private javax.swing.JButton btn_Usuarios;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbl_CerrarSesion;
