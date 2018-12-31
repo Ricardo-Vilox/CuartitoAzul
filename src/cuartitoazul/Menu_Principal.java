@@ -1,5 +1,6 @@
 package cuartitoazul;
 
+import com.lowagie.text.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import javax.swing.ImageIcon;
@@ -17,7 +18,6 @@ public class Menu_Principal extends javax.swing.JFrame {
         this.setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null); //centra frame en mi pantalla
-        JPanelPersonal.setVisible(false);
         setIconImage(new ImageIcon(getClass().getResource("/cuartitoazul/imagenes/logochico.png")).getImage());
     }
 
@@ -25,140 +25,202 @@ public class Menu_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        panel1 = new org.edisoncor.gui.panel.Panel();
-        JBCerrar = new javax.swing.JButton();
-        JBMin = new javax.swing.JButton();
-        JLTitulo = new javax.swing.JLabel();
-        JLLogo = new javax.swing.JLabel();
-        JBUsuarios = new javax.swing.JButton();
-        JBPersonal = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lbl_CerrarSesion = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btn_Reportes1 = new javax.swing.JButton();
+        btn_Reportes = new javax.swing.JButton();
+        btn_Caja = new javax.swing.JButton();
+        btn_Menu = new javax.swing.JButton();
+        btn_Usuarios = new javax.swing.JButton();
+        btn_Personal = new javax.swing.JButton();
+        JBCerrar = new javax.swing.JLabel();
+        JBMin = new javax.swing.JLabel();
         JLVilox = new javax.swing.JLabel();
-        JPanelPersonal = new org.edisoncor.gui.panel.Panel();
-        JBCrearP = new javax.swing.JButton();
-        JBEditarP = new javax.swing.JButton();
-        JLPersonal = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 440));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/fondogrande.png"))); // NOI18N
-        panelImage1.setPreferredSize(new java.awt.Dimension(790, 360));
-        panelImage1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel1.setColorPrimario(new java.awt.Color(0, 102, 255));
-        panel1.setColorSecundario(new java.awt.Color(153, 153, 153));
-        panel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                panel1MouseDragged(evt);
+        lbl_CerrarSesion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_CerrarSesion.setForeground(new java.awt.Color(44, 43, 6));
+        lbl_CerrarSesion.setText("Cerrar Sesión");
+        lbl_CerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_CerrarSesionMouseClicked(evt);
             }
-        });
-        panel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbl_CerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbl_CerrarSesionMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                panel1MousePressed(evt);
+                lbl_CerrarSesionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lbl_CerrarSesionMouseReleased(evt);
             }
         });
-        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(lbl_CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 90, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 425, 140, 10));
 
-        JBCerrar.setBackground(new java.awt.Color(153, 153, 153));
-        JBCerrar.setForeground(new java.awt.Color(153, 153, 153));
-        JBCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/cerrar.png"))); // NOI18N
-        JBCerrar.addActionListener(new java.awt.event.ActionListener() {
+        btn_Reportes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Corte.png"))); // NOI18N
+        btn_Reportes1.setText("Corte de Caja\n");
+        btn_Reportes1.setFocusable(false);
+        btn_Reportes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCerrarActionPerformed(evt);
+                btn_Reportes1ActionPerformed(evt);
             }
         });
-        panel1.add(JBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, -1));
+        jPanel1.add(btn_Reportes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 130, 70));
 
-        JBMin.setBackground(new java.awt.Color(153, 153, 153));
-        JBMin.setForeground(new java.awt.Color(153, 153, 153));
-        JBMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/minimizar.png"))); // NOI18N
-        JBMin.addActionListener(new java.awt.event.ActionListener() {
+        btn_Reportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Reportes.png"))); // NOI18N
+        btn_Reportes.setText("Reportes");
+        btn_Reportes.setFocusable(false);
+        btn_Reportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBMinActionPerformed(evt);
+                btn_ReportesActionPerformed(evt);
             }
         });
-        panel1.add(JBMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 30, -1));
+        jPanel1.add(btn_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 130, 70));
 
-        JLTitulo.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
-        JLTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        JLTitulo.setText("Menú Principal");
-        panel1.add(JLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 210, 30));
-
-        panelImage1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 70));
-
-        JLLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/logochico.png"))); // NOI18N
-        panelImage1.add(JLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 60, 60));
-
-        JBUsuarios.setText("Usuarios");
-        JBUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        btn_Caja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Caja.png"))); // NOI18N
+        btn_Caja.setText("Caja");
+        btn_Caja.setFocusable(false);
+        btn_Caja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBUsuariosActionPerformed(evt);
+                btn_CajaActionPerformed(evt);
             }
         });
-        panelImage1.add(JBUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 80, 70));
+        jPanel1.add(btn_Caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 130, 70));
 
-        JBPersonal.setText("Personal");
-        JBPersonal.addActionListener(new java.awt.event.ActionListener() {
+        btn_Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Menu.png"))); // NOI18N
+        btn_Menu.setText("Menu");
+        btn_Menu.setFocusable(false);
+        btn_Menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBPersonalActionPerformed(evt);
+                btn_MenuActionPerformed(evt);
             }
         });
-        panelImage1.add(JBPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 80, 70));
+        jPanel1.add(btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 130, 70));
+
+        btn_Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Usuarios.png"))); // NOI18N
+        btn_Usuarios.setText("Usuarios");
+        btn_Usuarios.setFocusable(false);
+        btn_Usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_UsuariosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 130, 70));
+
+        btn_Personal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Personal.png"))); // NOI18N
+        btn_Personal.setText("Personal");
+        btn_Personal.setFocusable(false);
+        btn_Personal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PersonalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 130, 70));
+
+        JBCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Cerrar.png"))); // NOI18N
+        JBCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBCerrarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(775, 3, 20, 20));
+
+        JBMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Minimizar.png"))); // NOI18N
+        JBMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBMinMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JBMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 3, 20, 20));
 
         JLVilox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/vilox.png"))); // NOI18N
-        panelImage1.add(JLVilox, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, 50, 70));
+        jPanel1.add(JLVilox, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 360, 50, 70));
 
-        JPanelPersonal.setColorPrimario(new java.awt.Color(153, 153, 153));
-        JPanelPersonal.setColorSecundario(new java.awt.Color(102, 102, 102));
-        JPanelPersonal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/MenuPrincipal.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 370, 100));
 
-        JBCrearP.setText("Crear");
-        JPanelPersonal.add(JBCrearP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 80, 80));
+        lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/fondo.jpg"))); // NOI18N
+        jPanel1.add(lbl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
 
-        JBEditarP.setText("Editar");
-        JPanelPersonal.add(JBEditarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, 80));
-
-        JLPersonal.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
-        JLPersonal.setForeground(new java.awt.Color(255, 255, 255));
-        JLPersonal.setText("Personal");
-        JPanelPersonal.add(JLPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 30));
-
-        panelImage1.add(JPanelPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 230, 150));
-
-        getContentPane().add(panelImage1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCerrarActionPerformed
-        // evento cerrar
-        System.exit(0);
-    }//GEN-LAST:event_JBCerrarActionPerformed
-
-    private void JBMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMinActionPerformed
-        // evento minimizar
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_JBMinActionPerformed
-
-    private void panel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseDragged
-        Point p = MouseInfo.getPointerInfo().getLocation();
-        this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
-    }//GEN-LAST:event_panel1MouseDragged
-
-    private void panel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MousePressed
-        x = evt.getX(); // este evento agarra las cordenadas de x y en las que estoy posicionado
-        y = evt.getY();
-    }//GEN-LAST:event_panel1MousePressed
-
-    private void JBUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUsuariosActionPerformed
+    private void btn_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UsuariosActionPerformed
        Crear_Usuario a=new Crear_Usuario();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_JBUsuariosActionPerformed
+    }//GEN-LAST:event_btn_UsuariosActionPerformed
 
-    private void JBPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPersonalActionPerformed
-        JPanelPersonal.setVisible(true);
-    }//GEN-LAST:event_JBPersonalActionPerformed
+    private void btn_PersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PersonalActionPerformed
+        
+    }//GEN-LAST:event_btn_PersonalActionPerformed
+
+    private void JBMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBMinMouseClicked
+        // TODO add your handling code here:
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_JBMinMouseClicked
+
+    private void JBCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBCerrarMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_JBCerrarMouseClicked
+
+    private void btn_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MenuActionPerformed
+
+    private void btn_CajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CajaActionPerformed
+
+    private void btn_ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ReportesActionPerformed
+
+    private void btn_Reportes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Reportes1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_Reportes1ActionPerformed
+
+    private void lbl_CerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_CerrarSesionMouseEntered
+        // TODO add your handling code here:
+        lbl_CerrarSesion.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 12));
+    }//GEN-LAST:event_lbl_CerrarSesionMouseEntered
+
+    private void lbl_CerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_CerrarSesionMouseExited
+        // TODO add your handling code here:
+        lbl_CerrarSesion.setFont(new java.awt.Font("Segoe UI", Font.NORMAL, 12));
+    }//GEN-LAST:event_lbl_CerrarSesionMouseExited
+
+    private void lbl_CerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_CerrarSesionMousePressed
+        // TODO add your handling code here:
+        lbl_CerrarSesion.setFont(new java.awt.Font("Segoe UI", Font.NORMAL, 12));
+    }//GEN-LAST:event_lbl_CerrarSesionMousePressed
+
+    private void lbl_CerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_CerrarSesionMouseReleased
+        // TODO add your handling code here:
+        lbl_CerrarSesion.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 12));
+    }//GEN-LAST:event_lbl_CerrarSesionMouseReleased
+
+    private void lbl_CerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_CerrarSesionMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_lbl_CerrarSesionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,20 +255,19 @@ public class Menu_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCerrar;
-    private javax.swing.JButton JBCrearP;
-    private javax.swing.JButton JBEditarP;
-    private javax.swing.JButton JBMin;
-    private javax.swing.JButton JBOficio;
-    private javax.swing.JButton JBPersonal;
-    private javax.swing.JButton JBUsuarios;
-    private javax.swing.JLabel JLLogo;
-    private javax.swing.JLabel JLPersonal;
-    private javax.swing.JLabel JLTitulo;
+    private javax.swing.JLabel JBCerrar;
+    private javax.swing.JLabel JBMin;
     private javax.swing.JLabel JLVilox;
-    private org.edisoncor.gui.panel.Panel JPanel2;
-    private org.edisoncor.gui.panel.Panel JPanelPersonal;
-    private org.edisoncor.gui.panel.Panel panel1;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
+    private javax.swing.JButton btn_Caja;
+    private javax.swing.JButton btn_Menu;
+    private javax.swing.JButton btn_Personal;
+    private javax.swing.JButton btn_Reportes;
+    private javax.swing.JButton btn_Reportes1;
+    private javax.swing.JButton btn_Usuarios;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lbl_CerrarSesion;
+    private javax.swing.JLabel lbl_Fondo;
     // End of variables declaration//GEN-END:variables
 }
