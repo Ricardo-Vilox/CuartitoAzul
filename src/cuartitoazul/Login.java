@@ -15,7 +15,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
- * @author Gerardo Rubio and Ricardo Castillo
+ * @author Gerardo Rubio and Ricardo Castillo.
  */
 public class Login extends javax.swing.JFrame {
 
