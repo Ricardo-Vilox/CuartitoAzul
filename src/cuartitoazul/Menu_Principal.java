@@ -8,7 +8,7 @@ import org.jvnet.substance.SubstanceLookAndFeel;
 
 /**
  *
- * @author Gerardo Rubio and Ricardo Castillo
+ * @author Gerardo Rubio and Ricardo Castillo.
  */
 public class Menu_Principal extends javax.swing.JFrame {
 
