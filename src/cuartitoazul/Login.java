@@ -78,7 +78,6 @@ public class Login extends javax.swing.JFrame {
         btn_Cancelar = new javax.swing.JButton();
         btn_Ingresar = new javax.swing.JButton();
         lbl_IniciarSesion = new javax.swing.JLabel();
-        JLLogo = new javax.swing.JLabel();
         JLUsuario = new javax.swing.JLabel();
         JLContra = new javax.swing.JLabel();
         JBMin = new javax.swing.JLabel();
@@ -123,9 +122,6 @@ public class Login extends javax.swing.JFrame {
 
         lbl_IniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Login/iniciar_sesion.png"))); // NOI18N
         PanelContenedor.add(lbl_IniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 310, 100));
-
-        JLLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Login/CuartitoAzulChico.png"))); // NOI18N
-        PanelContenedor.add(JLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 120, 80));
 
         JLUsuario.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         JLUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -260,7 +256,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel JBCerrar;
     private javax.swing.JLabel JBMin;
     private javax.swing.JLabel JLContra;
-    private javax.swing.JLabel JLLogo;
     private javax.swing.JLabel JLUsuario;
     private javax.swing.JPanel PanelContenedor;
     private javax.swing.JPasswordField TXTContra;

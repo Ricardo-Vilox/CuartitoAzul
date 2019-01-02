@@ -73,6 +73,7 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
         JCUsuario1.addItemListener(this);
         con.close();
     }
+
     public void verborrar2() throws SQLException {
 
         JBConfirmar2.setVisible(true);
@@ -122,8 +123,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
     private void initComponents() {
 
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        panel1 = new org.edisoncor.gui.panel.Panel();
-        JLTitulo = new javax.swing.JLabel();
         JBAtras = new javax.swing.JButton();
         JCContra = new javax.swing.JComboBox<>();
         JBCrearUs = new javax.swing.JButton();
@@ -160,29 +159,18 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/fondogrande.png"))); // NOI18N
-        panelImage1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panel1.setColorPrimario(new java.awt.Color(0, 102, 255));
-        panel1.setColorSecundario(new java.awt.Color(153, 153, 153));
-        panel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Usuario.png"))); // NOI18N
+        panelImage1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                panel1MouseDragged(evt);
+                panelImage1MouseDragged(evt);
             }
         });
-        panel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelImage1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                panel1MousePressed(evt);
+                panelImage1MousePressed(evt);
             }
         });
-        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        JLTitulo.setFont(new java.awt.Font("Blackadder ITC", 0, 36)); // NOI18N
-        JLTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        JLTitulo.setText("Crear Usuario");
-        panel1.add(JLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 210, 30));
-
-        panelImage1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 70));
+        panelImage1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBAtras.setText("Atras");
         JBAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -348,16 +336,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void panel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseDragged
-        Point p = MouseInfo.getPointerInfo().getLocation();
-        this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
-    }//GEN-LAST:event_panel1MouseDragged
-
-    private void panel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MousePressed
-        x = evt.getX(); // este evento agarra las cordenadas de x y en las que estoy posicionado
-        y = evt.getY();
-    }//GEN-LAST:event_panel1MousePressed
-
     private void JBAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtrasActionPerformed
         Menu_Principal a = new Menu_Principal();
         a.setVisible(true);
@@ -512,6 +490,16 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
         }
     }//GEN-LAST:event_JBConfirmar2ActionPerformed
 
+    private void panelImage1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage1MousePressed
+        x = evt.getX(); // este evento agarra las cordenadas de x y en las que estoy posicionado
+        y = evt.getY();
+    }//GEN-LAST:event_panelImage1MousePressed
+
+    private void panelImage1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage1MouseDragged
+        Point p = MouseInfo.getPointerInfo().getLocation();
+        this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
+    }//GEN-LAST:event_panelImage1MouseDragged
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -558,7 +546,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
     private javax.swing.JLabel JLNombre;
     private javax.swing.JLabel JLPersonal;
     private javax.swing.JLabel JLTipo;
-    private javax.swing.JLabel JLTitulo;
     private javax.swing.JLabel JLUsuario;
     private com.icm.components.metro.LabelMetroICM JLUsuario1;
     private com.icm.components.metro.LabelMetroICM JLUsuario2;
@@ -573,7 +560,6 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
     private javax.swing.JPasswordField TXTContra1;
     private org.edisoncor.gui.textField.TextFieldRectBackground TXTNombre;
     private org.edisoncor.gui.textField.TextFieldRectBackground TXTUsuario;
-    private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     // End of variables declaration//GEN-END:variables
 
