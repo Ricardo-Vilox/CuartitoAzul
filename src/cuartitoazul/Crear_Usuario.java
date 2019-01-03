@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Gerardo Rubio and Ricardo Castillo
+ * @author Gerardo Rubio and Ricardo Castillo.
  */
 public final class Crear_Usuario extends javax.swing.JFrame implements ItemListener {
 
