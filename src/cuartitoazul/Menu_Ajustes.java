@@ -7,6 +7,8 @@ package cuartitoazul;
 
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,12 +24,12 @@ import javax.swing.table.JTableHeader;
  *
  * @author pc 007
  */
-public class Menu_Ajustes extends javax.swing.JFrame {
+public final class Menu_Ajustes extends javax.swing.JFrame {
 
     DefaultTableModel ModeloTablaMenu;
     Connection con = null;
     Statement st;
-
+    private int x, y;
     int id_categorias = 0;
 
     public Menu_Ajustes() {
@@ -50,9 +52,9 @@ public class Menu_Ajustes extends javax.swing.JFrame {
     }
 
     public void Limpiar_Campos() {
-        txt_Platillo.setText("");
-        txt_Precio.setText("");
-        cmb_Categorias.setSelectedIndex(0);
+        TXTPlatillo.setText("");
+        TXTPrecio.setText("");
+        JCCategoria.setSelectedIndex(0);
     }
 
     public void MostrarDatos() {
@@ -104,7 +106,7 @@ public class Menu_Ajustes extends javax.swing.JFrame {
             // Apartado para encontrar ID del ComboBox
             Statement sr = con.createStatement();
             ResultSet r = sr.executeQuery("SELECT id_categoria FROM categorias WHERE categoria = '"
-                    + cmb_Categorias.getSelectedItem() + "'");
+                    + JCCategoria.getSelectedItem() + "'");
 
             while (r.next()) {
                 id_categorias = Integer.parseInt(r.getString(1));
@@ -120,7 +122,7 @@ public class Menu_Ajustes extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("SELECT categoria FROM categorias");
 
             while (rs.next()) {
-                cmb_Categorias.addItem(rs.getString(1));
+                JCCategoria.addItem(rs.getString(1));
             }
         } catch (SQLException sql) {
             JOptionPane.showMessageDialog(null, "Error al conectar con Categorias", null, JOptionPane.ERROR_MESSAGE);
@@ -131,6 +133,9 @@ public class Menu_Ajustes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         Panel_Contenedor = new javax.swing.JPanel();
         lbl_Cerrar = new javax.swing.JLabel();
         lbl_Minimizar = new javax.swing.JLabel();
@@ -138,15 +143,35 @@ public class Menu_Ajustes extends javax.swing.JFrame {
         lbl_Precio = new javax.swing.JLabel();
         lbl_Platillo = new javax.swing.JLabel();
         lbl_Titulo = new javax.swing.JLabel();
-        btn_Eliminar = new javax.swing.JButton();
         btn_Modificar = new javax.swing.JButton();
         btn_Agregar = new javax.swing.JButton();
-        txt_Precio = new javax.swing.JTextField();
-        txt_Platillo = new javax.swing.JTextField();
-        cmb_Categorias = new javax.swing.JComboBox<>();
+        TXTPrecio = new javax.swing.JTextField();
+        TXTPlatillo = new javax.swing.JTextField();
+        JCCategoria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Menu = new javax.swing.JTable();
+        JBAtras = new javax.swing.JButton();
         lbl_Fondo = new javax.swing.JLabel();
+
+        jMenuItem1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Menu_Ajustes/Modificar.png"))); // NOI18N
+        jMenuItem1.setText("Editar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Menu_Ajustes/Eliminar.png"))); // NOI18N
+        jMenuItem2.setText("Eliminar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 425));
@@ -170,31 +195,19 @@ public class Menu_Ajustes extends javax.swing.JFrame {
         Panel_Contenedor.add(lbl_Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 3, 20, 20));
 
         lbl_Precio1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lbl_Precio1.setForeground(new java.awt.Color(0, 0, 0));
         lbl_Precio1.setText("Categoria:");
         Panel_Contenedor.add(lbl_Precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1));
 
         lbl_Precio.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lbl_Precio.setForeground(new java.awt.Color(0, 0, 0));
         lbl_Precio.setText("Precio: ");
         Panel_Contenedor.add(lbl_Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
         lbl_Platillo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lbl_Platillo.setForeground(new java.awt.Color(0, 0, 0));
         lbl_Platillo.setText("Platillo:");
         Panel_Contenedor.add(lbl_Platillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
         lbl_Titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Menu_Ajustes/Titulo.png"))); // NOI18N
         Panel_Contenedor.add(lbl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 70));
-
-        btn_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Menu_Ajustes/Eliminar.png"))); // NOI18N
-        btn_Eliminar.setText("Eliminar");
-        btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_EliminarActionPerformed(evt);
-            }
-        });
-        Panel_Contenedor.add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 110, 40));
 
         btn_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Menu_Ajustes/Modificar.png"))); // NOI18N
         btn_Modificar.setText("Modificar");
@@ -213,10 +226,11 @@ public class Menu_Ajustes extends javax.swing.JFrame {
             }
         });
         Panel_Contenedor.add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 110, 40));
-        Panel_Contenedor.add(txt_Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 100, 30));
-        Panel_Contenedor.add(txt_Platillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 480, 30));
+        Panel_Contenedor.add(TXTPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 100, 30));
+        Panel_Contenedor.add(TXTPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 480, 30));
 
-        Panel_Contenedor.add(cmb_Categorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 230, 30));
+        JCCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione una opcion-" }));
+        Panel_Contenedor.add(JCCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 230, 30));
 
         Tabla_Menu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -229,11 +243,30 @@ public class Menu_Ajustes extends javax.swing.JFrame {
 
             }
         ));
+        Tabla_Menu.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(Tabla_Menu);
 
         Panel_Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 530, 180));
 
+        JBAtras.setText("Atras");
+        JBAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAtrasActionPerformed(evt);
+            }
+        });
+        Panel_Contenedor.add(JBAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, -1, -1));
+
         lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Menu_Ajustes/fondo.png"))); // NOI18N
+        lbl_Fondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lbl_FondoMouseDragged(evt);
+            }
+        });
+        lbl_Fondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_FondoMousePressed(evt);
+            }
+        });
         Panel_Contenedor.add(lbl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,8 +301,8 @@ public class Menu_Ajustes extends javax.swing.JFrame {
                     + "(descripcion,precio,id_categoria) "
                     + "VALUES(?,?,?);");
 
-            sm.setString(1, txt_Platillo.getText());//Ingresar la variable convertida a la Base de Datos
-            sm.setString(2, txt_Precio.getText());
+            sm.setString(1, TXTPlatillo.getText());//Ingresar la variable convertida a la Base de Datos
+            sm.setString(2, TXTPrecio.getText());
 
             EncontrarIdCategorias();
             sm.setInt(3, id_categorias);
@@ -287,9 +320,48 @@ public class Menu_Ajustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_AgregarActionPerformed
 
-    private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
+    private void btn_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ModificarActionPerformed
         // TODO add your handling code here:
+        if (!TXTPlatillo.getText().isEmpty() && !TXTPrecio.getText().isEmpty() && JCCategoria.getSelectedItem() != "-Seleccione una opcion-") {
+            int editat = JOptionPane.showConfirmDialog(null, "Seguro que quieres modificar el registro?");
+            if (editat == JOptionPane.YES_OPTION) {
+                try {
+                    DBconnect();
+                    EncontrarIdCategorias();
+                    PreparedStatement pst = con.prepareStatement("update platillos set descripcion= '" + TXTPlatillo.getText() + "' ,precio= '"
+                            + TXTPrecio.getText() + "' ,id_categoria= '" + id_categorias + "' WHERE descripcion= '" + TXTPlatillo.getText() + "'");
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "¡Modificacion exitosa!");
+                    MostrarDatos();
+                    Limpiar_Campos();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al modificar registro!: "
+                            + "\n" + ex.getMessage(), "Error ", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tienes que seleccionar algo que modificar");
+        }
+    }//GEN-LAST:event_btn_ModificarActionPerformed
 
+    private void JBAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtrasActionPerformed
+        Menu_Principal a = new Menu_Principal();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_JBAtrasActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int fila = Tabla_Menu.getSelectedRow();
+        if (fila >= 0) {
+            TXTPlatillo.setText(Tabla_Menu.getValueAt(fila, 0).toString());
+            TXTPrecio.setText(Tabla_Menu.getValueAt(fila, 1).toString());
+            JCCategoria.setSelectedItem(Tabla_Menu.getValueAt(fila, 2).toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "¡No seleccionaste una fila!");
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         String platillo = Tabla_Menu.getValueAt(Tabla_Menu.getSelectedRow(), 0).toString();
         int ax = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el Platillo?");
 
@@ -298,7 +370,6 @@ public class Menu_Ajustes extends javax.swing.JFrame {
                 PreparedStatement sl = null;
                 sl = con.prepareStatement("DELETE FROM platillos WHERE descripcion = '" + platillo + "'");
                 sl.executeUpdate();
-
                 sl.close();
                 MostrarDatos();
                 Limpiar_Campos();
@@ -308,32 +379,18 @@ public class Menu_Ajustes extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error al eliminar Platillo" + ex.getMessage());
             }
         }
-    }//GEN-LAST:event_btn_EliminarActionPerformed
 
-    private void btn_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ModificarActionPerformed
-        // TODO add your handling code here:
-        int a = Tabla_Menu.getSelectedRow();
-        String platillo = Tabla_Menu.getModel().getValueAt(a, 0).toString();
-        
-        EncontrarIdCategorias();
-  
-        try {
-            PreparedStatement sa = null;
-            String sql = "UPDATE platillos SET descripcion = '" + txt_Platillo.getText() + "', "
-                    + "precio = " + txt_Precio.getText() + ", "
-                    + "id_categoria = " + id_categorias
-                    + " WHERE descripcion = '" + platillo + "'";//Query
-            sa = con.prepareStatement(sql);
-            sa.executeUpdate();
-            MostrarDatos();
-            Limpiar_Campos();
-            
-            sa.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al modificar registro!: "
-                    + "\n" + ex.getMessage(), "Error ", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btn_ModificarActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void lbl_FondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_FondoMousePressed
+        x = evt.getX(); // este evento agarra las cordenadas de x y en las que estoy posicionado
+        y = evt.getY();
+    }//GEN-LAST:event_lbl_FondoMousePressed
+
+    private void lbl_FondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_FondoMouseDragged
+        Point p = MouseInfo.getPointerInfo().getLocation();
+        this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
+    }//GEN-LAST:event_lbl_FondoMouseDragged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -348,32 +405,31 @@ public class Menu_Ajustes extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_Ajustes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_Ajustes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_Ajustes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Menu_Ajustes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
+        //</editor-fold>
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu_Ajustes().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Menu_Ajustes().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBAtras;
+    private javax.swing.JComboBox<String> JCCategoria;
     private javax.swing.JPanel Panel_Contenedor;
+    private javax.swing.JTextField TXTPlatillo;
+    private javax.swing.JTextField TXTPrecio;
     private javax.swing.JTable Tabla_Menu;
     private javax.swing.JButton btn_Agregar;
-    private javax.swing.JButton btn_Eliminar;
     private javax.swing.JButton btn_Modificar;
-    private javax.swing.JComboBox<String> cmb_Categorias;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_Cerrar;
     private javax.swing.JLabel lbl_Fondo;
@@ -382,7 +438,5 @@ public class Menu_Ajustes extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Precio;
     private javax.swing.JLabel lbl_Precio1;
     private javax.swing.JLabel lbl_Titulo;
-    private javax.swing.JTextField txt_Platillo;
-    private javax.swing.JTextField txt_Precio;
     // End of variables declaration//GEN-END:variables
 }

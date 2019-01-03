@@ -156,6 +156,7 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
         TXTConAn = new javax.swing.JPasswordField();
         JCUsuario = new javax.swing.JComboBox<>();
         JLConAn = new com.icm.components.metro.LabelMetroICM();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -182,23 +183,25 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
 
         panelImage1.add(JCContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 100, 30));
 
-        JBCrearUs.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        JBCrearUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/btn_user.png"))); // NOI18N
+        JBCrearUs.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        JBCrearUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Agregar.png"))); // NOI18N
+        JBCrearUs.setText("Agegar");
         JBCrearUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCrearUsActionPerformed(evt);
             }
         });
-        panelImage1.add(JBCrearUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 100, 100));
+        panelImage1.add(JBCrearUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, 40));
 
-        JBBorrarUs.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        JBBorrarUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/btn_elim.png"))); // NOI18N
+        JBBorrarUs.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        JBBorrarUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Eliminar.png"))); // NOI18N
+        JBBorrarUs.setText("Eliminar");
         JBBorrarUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBBorrarUsActionPerformed(evt);
             }
         });
-        panelImage1.add(JBBorrarUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 100, 100));
+        panelImage1.add(JBBorrarUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 120, 40));
 
         JCUsuario1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         JCUsuario1.addActionListener(new java.awt.event.ActionListener() {
@@ -213,14 +216,15 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
         JLUsuario2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         panelImage1.add(JLUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 140, 40));
 
-        JBCambiarContra.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        JBCambiarContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/btn_modi.png"))); // NOI18N
+        JBCambiarContra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        JBCambiarContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Modificar.png"))); // NOI18N
+        JBCambiarContra.setText("Modificar");
         JBCambiarContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCambiarContraActionPerformed(evt);
             }
         });
-        panelImage1.add(JBCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 100, 100));
+        panelImage1.add(JBCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 40));
         panelImage1.add(TXT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 90, 30));
 
         JBConfirmar2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -330,6 +334,10 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
         JPanelModificar.add(JLConAn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
 
         panelImage1.add(JPanelModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 230, 330));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/Titulo.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        panelImage1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 410, 40));
 
         getContentPane().add(panelImage1, java.awt.BorderLayout.PAGE_START);
 
@@ -560,6 +568,7 @@ public final class Crear_Usuario extends javax.swing.JFrame implements ItemListe
     private javax.swing.JPasswordField TXTContra1;
     private org.edisoncor.gui.textField.TextFieldRectBackground TXTNombre;
     private org.edisoncor.gui.textField.TextFieldRectBackground TXTUsuario;
+    private javax.swing.JLabel jLabel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     // End of variables declaration//GEN-END:variables
 
