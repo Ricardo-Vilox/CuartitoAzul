@@ -28,6 +28,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lbl_CerrarSesion = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btn_AjustesMenu = new javax.swing.JButton();
         btn_Reportes1 = new javax.swing.JButton();
         btn_Reportes = new javax.swing.JButton();
         btn_Caja = new javax.swing.JButton();
@@ -71,6 +72,16 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel1.add(lbl_CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 90, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 425, 140, 10));
 
+        btn_AjustesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Ajustes.png"))); // NOI18N
+        btn_AjustesMenu.setText("Ajustes de Menu");
+        btn_AjustesMenu.setFocusable(false);
+        btn_AjustesMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AjustesMenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_AjustesMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 210, 70));
+
         btn_Reportes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Corte.png"))); // NOI18N
         btn_Reportes1.setText("Corte de Caja\n");
         btn_Reportes1.setFocusable(false);
@@ -79,7 +90,7 @@ public class Menu_Principal extends javax.swing.JFrame {
                 btn_Reportes1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Reportes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 130, 70));
+        jPanel1.add(btn_Reportes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 140, 70));
 
         btn_Reportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Reportes.png"))); // NOI18N
         btn_Reportes.setText("Reportes");
@@ -89,7 +100,7 @@ public class Menu_Principal extends javax.swing.JFrame {
                 btn_ReportesActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 130, 70));
+        jPanel1.add(btn_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 130, 70));
 
         btn_Caja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Caja.png"))); // NOI18N
         btn_Caja.setText("Caja");
@@ -99,7 +110,7 @@ public class Menu_Principal extends javax.swing.JFrame {
                 btn_CajaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 130, 70));
+        jPanel1.add(btn_Caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 130, 70));
 
         btn_Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Menu.png"))); // NOI18N
         btn_Menu.setText("Menu");
@@ -109,7 +120,7 @@ public class Menu_Principal extends javax.swing.JFrame {
                 btn_MenuActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 130, 70));
+        jPanel1.add(btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 130, 70));
 
         btn_Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Usuarios.png"))); // NOI18N
         btn_Usuarios.setText("Usuarios");
@@ -119,7 +130,7 @@ public class Menu_Principal extends javax.swing.JFrame {
                 btn_UsuariosActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 130, 70));
+        jPanel1.add(btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 140, 70));
 
         btn_Personal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Personal.png"))); // NOI18N
         btn_Personal.setText("Personal");
@@ -129,7 +140,7 @@ public class Menu_Principal extends javax.swing.JFrame {
                 btn_PersonalActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 130, 70));
+        jPanel1.add(btn_Personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 130, 70));
 
         JBCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuartitoazul/imagenes/MenuPrincipal/Cerrar.png"))); // NOI18N
         JBCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -253,6 +264,13 @@ public class Menu_Principal extends javax.swing.JFrame {
         this.setLocation(p.x - x, p.y - y); //cuando tengo cordenasdas en x y ya las puedo mover donde quiera
     }//GEN-LAST:event_lbl_FondoMouseDragged
 
+    private void btn_AjustesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AjustesMenuActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Menu_Ajustes ajustes = new Menu_Ajustes();
+        ajustes.setVisible(true);
+    }//GEN-LAST:event_btn_AjustesMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,6 +310,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel JLBievenido;
     private javax.swing.JLabel JLTitulo;
     private javax.swing.JLabel JLVilox;
+    private javax.swing.JButton btn_AjustesMenu;
     private javax.swing.JButton btn_Caja;
     private javax.swing.JButton btn_Menu;
     private javax.swing.JButton btn_Personal;
