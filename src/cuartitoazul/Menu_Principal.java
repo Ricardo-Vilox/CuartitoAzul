@@ -199,7 +199,9 @@ public class Menu_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCerrarMouseClicked
 
     private void btn_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MenuActionPerformed
-        // TODO add your handling code here:
+        Menu_Platillos a = new Menu_Platillos();
+        a.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_MenuActionPerformed
 
     private void btn_CajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CajaActionPerformed
